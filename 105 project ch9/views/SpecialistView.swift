@@ -23,7 +23,7 @@ struct SpecialistView: View {
                     // MARK: - Title and Search Box
                     VStack(spacing: 30){
                         
-                        Text("Find Your\nBeauty Specialist!")
+                        Text("Find Your\nMusic Mentor \(Image(systemName: "music.note"))")
                             .font(.largeTitle.bold())
                             .foregroundStyle(.white)
                             .multilineTextAlignment(.center)
@@ -51,22 +51,22 @@ struct SpecialistView: View {
                                 NavigationLink(destination: CategoriesView()){
                                     Text("See All")
                                         .font(.headline)
-                                        .foregroundStyle(Color("MainColor"))
+                                        .foregroundStyle(Color("AccentBlue"))
                                 }
                                 
                             }
                             
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack(spacing: 20){
-                                    CategoryCardView(icon: "hand.raised", title: "Nails")
+                                    CategoryCardView(icon: "guitars", title: "Guitar")
                                         
-                                    CategoryCardView(icon: "eye.fill", title: "Lashes")
+                                    CategoryCardView(icon: "guitars", title: "Bass")
                                         
-                                    CategoryCardView(icon: "wind", title: "Hair")
+                                    CategoryCardView(icon: "pianokeys", title: "Piano")
                                         
-                                    CategoryCardView(icon: "eyebrow", title: "Eyebrows")
+                                    CategoryCardView(icon: "metronome", title: "Drums")
                                         
-                                    CategoryCardView(icon: "face.smiling", title: "facial")
+                                    CategoryCardView(icon: "music.mic", title: "Vocals")
                                         
                                 }
                             }
@@ -83,19 +83,61 @@ struct SpecialistView: View {
                             
                             ScrollView(.vertical, showsIndicators: false){
                                 VStack(spacing: 20){
-                                    SpecialistCardView()
-                                    
-                                    SpecialistCardView()
-                                    
-                                    SpecialistCardView()
-                                    
-                                    SpecialistCardView()
-                                    
-                                    SpecialistCardView()
+                                    SpecialistCardView(
+                                        
+                                        specialist: Specialist(
+                                            name: "Jonathan H.",
+                                            specialty: "Guitar",
+                                            minPrice: 99.99,
+                                            maxPrice: 149.99,
+                                            rating: 5.0,
+                                            image: "person")
+                                        )
+                                    SpecialistCardView(
+                                        
+                                        specialist: Specialist(
+                                            name: "Mike M.",
+                                            specialty: "Bass",
+                                            minPrice: 99.99,
+                                            maxPrice: 149.99,
+                                            rating: 5.0,
+                                            image: "person")
+                                        )
+                                    SpecialistCardView(
+                                        
+                                        specialist: Specialist(
+                                            name: "Brent A.",
+                                            specialty: "Piano",
+                                            minPrice: 99.99,
+                                            maxPrice: 149.99,
+                                            rating: 5.0,
+                                            image: "person")
+                                        )
+                                    SpecialistCardView(
+                                        
+                                        specialist: Specialist(
+                                            name: "Sharon A.",
+                                            specialty: "Drums",
+                                            minPrice: 99.99,
+                                            maxPrice: 149.99,
+                                            rating: 5.0,
+                                            image: "person")
+                                        )
+                                    SpecialistCardView(
+                                        
+                                        specialist: Specialist(
+                                            name: "Ashlie H.",
+                                            specialty: "Vocals",
+                                            minPrice: 99.99,
+                                            maxPrice: 149.99,
+                                            rating: 5.0,
+                                            image: "person")
+                                        )
                                 }
                             }
                         } // END: Top Specialist
                         .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color("SurfaceColor"))

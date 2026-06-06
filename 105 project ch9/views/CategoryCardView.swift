@@ -18,7 +18,7 @@ struct CategoryCardView: View {
                 .font(.title)
                 .foregroundStyle(Color("SurfaceColor"))
                 .frame(width: 50, height: 50)
-                .background(Color("MainColor"))
+                .background(Color("AccentBlue"))
                 .clipShape(Circle())
             
             Text(title)

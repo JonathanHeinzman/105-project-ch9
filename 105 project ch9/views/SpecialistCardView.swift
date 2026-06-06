@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct SpecialistCardView: View {
+    
+    let specialist: Specialist
+    // let name = String
+    
+    
     var body: some View {
         HStack {
             // Person icon
-            Image(systemName: "person.fill")
+            Image(systemName: specialist.image)
                 .font(.title)
                 .foregroundStyle(Color("SurfaceColor"))
                 .frame(width: 50, height: 50)
@@ -21,22 +26,23 @@ struct SpecialistCardView: View {
             
             // Specialist info
             VStack(alignment: .leading, spacing: 4){
-                Text("Specialist Name")
+                Text(specialist.name)
                     .font(.headline.bold())
-                    .foregroundStyle(Color("MainColor"))
-                Text("Specialty")
+                    .foregroundStyle(Color("AccentBlue"))
+                Text(specialist.specialty)
                     .font(.subheadline)
-                Text("$100 - $300")
-                    .font(.subheadline.bold())
+                Text("$\(specialist.minPrice, specifier: "%.2f") - $\(specialist.maxPrice, specifier: "%.2f")")
+                    .font(.footnote)
             }
             .padding(10)
             
             VStack{
                 // Rating
                 HStack(alignment: .center){
-                    Image(systemName: "star.fill").foregroundColor(.yellow)
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
                         .font(.subheadline)
-                    Text("4.5")
+                    Text(String(specialist.rating))
                         .font(.subheadline)
                 }
                 
@@ -46,19 +52,30 @@ struct SpecialistCardView: View {
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .frame(width: 60, height: 30)
-                        .background(Color("MainColor"))
+                        .background(Color("AccentBlue"))
                         .cornerRadius(10)
                 }
             }
             .padding(.leading, 30)
             .padding()
         }
-        .frame(width: 350, height: 100)
+        .padding()
         .background(.white)
         .cornerRadius(15)
     }
 }
 
 #Preview {
-    SpecialistCardView()
+    SpecialistCardView(
+        
+        specialist: Specialist(
+            name: "Jonathan H.",
+            specialty: "Guitar",
+            minPrice: 99.99,
+            maxPrice: 149.99,
+            rating: 5.0,
+            image: "person"
+        )
+        
+    )
 }
