@@ -22,12 +22,20 @@ struct SpecialistView: View {
                     
                     // MARK: - Title and Search Box
                     VStack(spacing: 30){
-                        
-                        Text("Find Your\nMusic Mentor \(Image(systemName: "music.note"))")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(.white)
-                            .multilineTextAlignment(.center)
-                        
+                        VStack{
+                            Text("Find Your")
+                                .font(.largeTitle.bold())
+                                .foregroundStyle(.white)
+                            
+                            HStack{
+                                Text("Music Mentor")
+                                    .font(.largeTitle.bold())
+                                    .foregroundStyle(.white)
+                                Image(systemName: "music.note")
+                                    .foregroundStyle(Color("AccentBlue"))
+                                    .font(.largeTitle.bold())
+                            }
+                        }
                         
                         TextField("Search...", text: .constant(""))
                             .padding()
@@ -52,6 +60,9 @@ struct SpecialistView: View {
                                     Text("See All")
                                         .font(.headline)
                                         .foregroundStyle(Color("AccentBlue"))
+                                        .accessibilityLabel("See all")
+                                        .accessibilityHint("Showing all the categories")
+                            
                                 }
                                 
                             }
@@ -59,15 +70,15 @@ struct SpecialistView: View {
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack(spacing: 20){
                                     CategoryCardView(icon: "guitars", title: "Guitar")
-                                        
+                                    
                                     CategoryCardView(icon: "guitars", title: "Bass")
-                                        
+                                    
                                     CategoryCardView(icon: "pianokeys", title: "Piano")
-                                        
+                                    
                                     CategoryCardView(icon: "metronome", title: "Drums")
-                                        
+                                    
                                     CategoryCardView(icon: "music.mic", title: "Vocals")
-                                        
+                                    
                                 }
                             }
                             
@@ -77,7 +88,7 @@ struct SpecialistView: View {
                         
                         // Top Specialist
                         VStack(alignment: .leading, spacing: 20){
-                            Text("Top Specialist")
+                            Text("Top Specialists")
                                 .font(.title2.bold())
                             
                             
@@ -87,42 +98,42 @@ struct SpecialistView: View {
                                         
                                         specialist: Specialist(
                                             name: "Jonathan H.",
-                                            specialty: "Guitar",
+                                            specialty: "Guitar & Bass",
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
-                                            image: "person")
-                                        )
+                                            image: "JonathanGuitar")
+                                    )
                                     SpecialistCardView(
                                         
                                         specialist: Specialist(
-                                            name: "Mike M.",
-                                            specialty: "Bass",
+                                            name: "Josh Ham",
+                                            specialty: "Guitar & Bass",
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
-                                            image: "person")
-                                        )
+                                            image: "JoshBass")
+                                    )
                                     SpecialistCardView(
                                         
                                         specialist: Specialist(
                                             name: "Brent A.",
                                             specialty: "Piano",
                                             minPrice: 99.99,
-                                            maxPrice: 149.99,
+                                            maxPrice: 299.99,
                                             rating: 5.0,
-                                            image: "person")
-                                        )
+                                            image: "Piano")
+                                    )
                                     SpecialistCardView(
                                         
                                         specialist: Specialist(
                                             name: "Sharon A.",
                                             specialty: "Drums",
                                             minPrice: 99.99,
-                                            maxPrice: 149.99,
+                                            maxPrice: 349.99,
                                             rating: 5.0,
-                                            image: "person")
-                                        )
+                                            image: "Drummer")
+                                    )
                                     SpecialistCardView(
                                         
                                         specialist: Specialist(
@@ -131,8 +142,8 @@ struct SpecialistView: View {
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
-                                            image: "person")
-                                        )
+                                            image: "Baby")
+                                    )
                                 }
                             }
                         } // END: Top Specialist

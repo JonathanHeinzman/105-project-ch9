@@ -16,9 +16,9 @@ struct SpecialistCardView: View {
     var body: some View {
         HStack {
             // Person icon
-            Image(systemName: specialist.image)
-                .font(.title)
-                .foregroundStyle(Color("SurfaceColor"))
+            Image(specialist.image)
+                .resizable()
+                .scaledToFill()
                 .frame(width: 50, height: 50)
                 .background(Color("MainColor"))
                 .clipShape(Circle())
@@ -62,6 +62,9 @@ struct SpecialistCardView: View {
         .padding()
         .background(.white)
         .cornerRadius(15)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(specialist.name) Top specialist in \(specialist.specialty)")
+        .accessibilityHint("Book appointment with \(specialist.name) the price is between \(specialist.minPrice, specifier: "%.2f") and \(specialist.maxPrice, specifier: "%.2f").  \(specialist.name) has a rating of \(specialist.rating, specifier: "%.1f") stars.")
     }
 }
 
@@ -70,7 +73,7 @@ struct SpecialistCardView: View {
         
         specialist: Specialist(
             name: "Jonathan H.",
-            specialty: "Guitar",
+            specialty: "Guitar & Bass",
             minPrice: 99.99,
             maxPrice: 149.99,
             rating: 5.0,
