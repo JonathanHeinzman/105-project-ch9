@@ -95,10 +95,10 @@ struct SpecialistView: View {
                             ScrollView(.vertical, showsIndicators: false){
                                 VStack(spacing: 20){
                                     SpecialistCardView(
-                                        
                                         specialist: Specialist(
                                             name: "Jonathan H.",
                                             specialty: "Guitar & Bass",
+                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
@@ -108,7 +108,8 @@ struct SpecialistView: View {
                                         
                                         specialist: Specialist(
                                             name: "Josh Ham",
-                                            specialty: "Guitar & Bass",
+                                            specialty: "Bass",
+                                            description: "Experienced bass player with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
@@ -119,6 +120,7 @@ struct SpecialistView: View {
                                         specialist: Specialist(
                                             name: "Brent A.",
                                             specialty: "Piano",
+                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
                                             minPrice: 99.99,
                                             maxPrice: 299.99,
                                             rating: 5.0,
@@ -129,6 +131,7 @@ struct SpecialistView: View {
                                         specialist: Specialist(
                                             name: "Sharon A.",
                                             specialty: "Drums",
+                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
                                             minPrice: 99.99,
                                             maxPrice: 349.99,
                                             rating: 5.0,
@@ -139,6 +142,7 @@ struct SpecialistView: View {
                                         specialist: Specialist(
                                             name: "Ashlie H.",
                                             specialty: "Vocals",
+                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
                                             minPrice: 99.99,
                                             maxPrice: 149.99,
                                             rating: 5.0,
