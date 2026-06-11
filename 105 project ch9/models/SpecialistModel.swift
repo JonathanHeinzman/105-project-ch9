@@ -4,10 +4,13 @@
 //
 //  Created by Jonathan Heinzman on 6/6/26.
 //
+import Foundation
 
-class Specialist {
+class Specialist: Identifiable {
     
     // Properties
+    let id = UUID()
+    
     var name: String
     var specialty: String
     var description: String

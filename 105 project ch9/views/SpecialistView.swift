@@ -8,6 +8,64 @@
 import SwiftUI
 
 struct SpecialistView: View {
+    
+    let specialistList : [Specialist] = [
+        Specialist(
+            name: "Jonathan H.",
+            specialty: "Guitar & Bass",
+            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
+            minPrice: 99.99,
+            maxPrice: 149.99,
+            rating: 5.0,
+            image: "JonathanGuitar"),
+        Specialist(
+            name: "Josh Ham",
+            specialty: "Bass",
+            description: "Experienced bass player with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
+            minPrice: 99.99,
+            maxPrice: 149.99,
+            rating: 5.0,
+            image: "JoshBass"),
+        Specialist(
+            name: "Brent A.",
+            specialty: "Piano",
+            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
+            minPrice: 99.99,
+            maxPrice: 299.99,
+            rating: 5.0,
+            image: "Piano"),
+        Specialist(
+            name: "Sharon A.",
+            specialty: "Drums",
+            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
+            minPrice: 99.99,
+            maxPrice: 349.99,
+            rating: 5.0,
+            image: "Drummer"),
+        Specialist(
+            name: "Ashlie H.",
+            specialty: "Vocals",
+            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
+            minPrice: 99.99,
+            maxPrice: 149.99,
+            rating: 5.0,
+            image: "Baby")
+    ]
+    
+    @State private var searchText: String = ""
+    
+    
+    var filteredList: [Specialist] {
+        if searchText.isEmpty {
+            return specialistList
+        }else{
+            return specialistList.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.specialty.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
     var body: some View {
         // Navigation container for the screen
         NavigationStack {
@@ -37,7 +95,7 @@ struct SpecialistView: View {
                             }
                         }
                         
-                        TextField("Search...", text: .constant(""))
+                        TextField("Search...", text: $searchText)
                             .padding()
                             .background(.white)
                             .cornerRadius(7)
@@ -62,7 +120,7 @@ struct SpecialistView: View {
                                         .foregroundStyle(Color("AccentBlue"))
                                         .accessibilityLabel("See all")
                                         .accessibilityHint("Showing all the categories")
-                            
+                                    
                                 }
                                 
                             }
@@ -90,64 +148,14 @@ struct SpecialistView: View {
                         VStack(alignment: .leading, spacing: 20){
                             Text("Top Specialists")
                                 .font(.title2.bold())
-                            
+                            //.onLongPressGesture {}
                             
                             ScrollView(.vertical, showsIndicators: false){
                                 VStack(spacing: 20){
-                                    SpecialistCardView(
-                                        specialist: Specialist(
-                                            name: "Jonathan H.",
-                                            specialty: "Guitar & Bass",
-                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
-                                            minPrice: 99.99,
-                                            maxPrice: 149.99,
-                                            rating: 5.0,
-                                            image: "JonathanGuitar")
-                                    )
-                                    SpecialistCardView(
+                                    ForEach(filteredList){ specialist in
+                                        SpecialistCardView(specialist : specialist)
                                         
-                                        specialist: Specialist(
-                                            name: "Josh Ham",
-                                            specialty: "Bass",
-                                            description: "Experienced bass player with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
-                                            minPrice: 99.99,
-                                            maxPrice: 149.99,
-                                            rating: 5.0,
-                                            image: "JoshBass")
-                                    )
-                                    SpecialistCardView(
-                                        
-                                        specialist: Specialist(
-                                            name: "Brent A.",
-                                            specialty: "Piano",
-                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
-                                            minPrice: 99.99,
-                                            maxPrice: 299.99,
-                                            rating: 5.0,
-                                            image: "Piano")
-                                    )
-                                    SpecialistCardView(
-                                        
-                                        specialist: Specialist(
-                                            name: "Sharon A.",
-                                            specialty: "Drums",
-                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
-                                            minPrice: 99.99,
-                                            maxPrice: 349.99,
-                                            rating: 5.0,
-                                            image: "Drummer")
-                                    )
-                                    SpecialistCardView(
-                                        
-                                        specialist: Specialist(
-                                            name: "Ashlie H.",
-                                            specialty: "Vocals",
-                                            description: "Experienced guitarist and bassist with over 10 years of experience. I have been playing guitar and bass at various churches for over 10 years.",
-                                            minPrice: 99.99,
-                                            maxPrice: 149.99,
-                                            rating: 5.0,
-                                            image: "Baby")
-                                    )
+                                    }
                                 }
                             }
                         } // END: Top Specialist
